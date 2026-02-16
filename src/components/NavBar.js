@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-
-
-
-import { BrowserRouter as Router } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { HashLink } from 'react-router-hash-link';
 
 export const NavBar = () => {
   const [activeLink, setActiveLink] = useState("home");
@@ -28,51 +26,40 @@ export const NavBar = () => {
   };
 
   return (
-    <Router>
-      <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
-        <Container>
-          <Navbar.Brand href="/">
-            <h2 className="portfolio">Portfolio</h2>
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav">
-            <span className="navbar-toggler-icon"></span>
-          </Navbar.Toggle>
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-auto">
-              <Nav.Link
-                href="#home"
-                className={
-                  activeLink === "home" ? "active navbar-link" : "navbar-link"
-                }
-                onClick={() => onUpdateActiveLink("home")}
-              >
-                Home
-              </Nav.Link>
-              <Nav.Link
-                href="#skills"
-                className={
-                  activeLink === "skills" ? "active navbar-link" : "navbar-link"
-                }
-                onClick={() => onUpdateActiveLink("skills")}
-              >
-                Skills
-              </Nav.Link>
-              <Nav.Link
-                href="#blog"
-                className={
-                  activeLink === "blog"
-                    ? "active navbar-link"
-                    : "navbar-link"
-                }
-                onClick={() => onUpdateActiveLink("blog")}
-              >
-                Blog
-              </Nav.Link>
-            </Nav>
-            
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    </Router>
+    <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
+      <Container>
+        <Navbar.Brand as={Link} to="/">
+          <h2 className="portfolio" style={{ fontFamily: '"Source Code Pro", monospace' }}>~/koushik</h2>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav">
+          <span className="navbar-toggler-icon"></span>
+        </Navbar.Toggle>
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+            <Nav.Link
+              as={HashLink}
+              to="/#home"
+              className={
+                activeLink === "home" ? "active navbar-link" : "navbar-link"
+              }
+              onClick={() => onUpdateActiveLink("home")}
+            >
+              Home
+            </Nav.Link>
+            <Nav.Link
+              as={Link}
+              to="/blogs"
+              className={
+                activeLink === "blog" ? "active navbar-link" : "navbar-link"
+              }
+              onClick={() => onUpdateActiveLink("blog")}
+            >
+              Blog
+            </Nav.Link>
+          </Nav>
+          
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };

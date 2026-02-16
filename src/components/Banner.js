@@ -6,13 +6,15 @@ import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
+import { HashLink } from 'react-router-hash-link';
+
 export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const [index, setIndex] = useState(1);
-  const toRotate = ["Software Engineer", "Java/Spring Boot Expert", "Backend Architect"];
+  const toRotate = ["Software Engineer", "Java/Spring Boot", "Linux Enthusiast", "Cloud Native", "Docker & Kubernetes", "Geeked out for tech"];
   const period = 2000;
 
   useEffect(() => {
@@ -51,23 +53,56 @@ export const Banner = () => {
   return (
     <section className="banner" id="home">
       <Container>
-        <Row className="aligh-items-center">
+        <Row className="align-items-center">
           <Col xs={12} md={6} xl={7}>
             <TrackVisibility>
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
 
-                  <h1>{'Heyy !!'}</h1>
                   <h1>{`I'm `}
                     <span style={{ color: '#03C988', textShadow: '0 0 5px rgba(3, 201, 136, 0.4)' }}>Koushik</span>
                   </h1>
 
                   <h3>
-                    <span className="txt-rotate" style={{ fontFamily: '"Source Code Pro", monospace' }} dataPeriod="1000" data-rotate='[ "Software Engineer", "Java/Spring Boot Expert", "Backend Architect" ]'><span className="wrap">{text}</span></span>
-
+                    <span className="txt-rotate" style={{ fontFamily: '"Source Code Pro", monospace' }}>
+                      <span style={{ color: '#03C988' }}>$</span> <span className="wrap">{text}</span>
+                    </span>
                   </h3>
                   <p>Software Engineer specializing in building scalable backend systems with Java 21, Spring Boot 3.x, and Microservices architecture. Currently focused on mastering system-wide observability, Docker-based deployments, and clean code practices. Let's build something efficient and impactful.</p>
-                  <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
+                  
+                  <div className="banner-expertise mb-5">
+                    <span className="expertise-label">[stack]:</span>
+                    <Row className="mt-3">
+                      <Col xs={6} md={3} className="mb-3 mb-md-0">
+                        <div className="skill-block">
+                          <h5>Backend</h5>
+                          <div className="skill-tags">Java | SpringBoot | JPA</div>
+                        </div>
+                      </Col>
+                      <Col xs={6} md={3} className="mb-3 mb-md-0">
+                        <div className="skill-block">
+                          <h5>System</h5>
+                          <div className="skill-tags">Microservices | Design</div>
+                        </div>
+                      </Col>
+                      <Col xs={6} md={3} className="mb-3 mb-md-0">
+                        <div className="skill-block">
+                          <h5>Infra</h5>
+                          <div className="skill-tags">Docker | Postgres | Linux</div>
+                        </div>
+                      </Col>
+                      <Col xs={6} md={3} className="mb-3 mb-md-0">
+                        <div className="skill-block">
+                          <h5>Quality</h5>
+                          <div className="skill-tags">CleanCode | TDD | SOLID</div>
+                        </div>
+                      </Col>
+                    </Row>
+                  </div>
+
+                  <HashLink to="/#connect" style={{ textDecoration: 'none' }}>
+                    <button>Let’s Connect <ArrowRightCircle size={25} /></button>
+                  </HashLink>
                 </div>}
             </TrackVisibility>
           </Col>

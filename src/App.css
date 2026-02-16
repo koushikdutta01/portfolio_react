@@ -248,47 +248,43 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border-right: 0.08em solid #d2cbcb;
 }
 
-/************ Skills Css ************/
-.skill {
-  padding: 100px 0;
-  background: #000000;
+/************ Banner Expertise Css ************/
+.banner-expertise {
+  max-width: 800px;
 }
-.skill h2 {
-  font-size: 50px;
-  font-weight: 800;
-  text-align: center;
-  margin-bottom: 20px;
+.expertise-label {
   color: #03C988;
-  text-shadow: 0 0 5px rgba(3, 201, 136, 0.4);
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  opacity: 0.8;
 }
-.skill p {
-  color: #B8B8B8;
-  font-size: 20px;
-  letter-spacing: 0.5px;
-  line-height: 1.8em;
-  margin: 14px auto 60px auto;
-  text-align: center;
-  width: 70%;
-}
-.skill-card {
-  background: #000000;
+.skill-block {
+  padding: 12px;
   border: 1px solid #1a1a1a;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  height: 100%;
-  padding: 40px;
-  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.02);
+  border-radius: 4px;
+  background: #000;
+  transition: 0.3s;
 }
-.skill-card:hover {
-  transform: translateY(-5px);
+.skill-block:hover {
   border-color: #03C988;
   box-shadow: 0 0 15px rgba(3, 201, 136, 0.1);
 }
-.skill-card h3 {
-  font-size: 26px;
-  font-weight: 700;
-  margin-bottom: 20px;
+.skill-block h5 {
   color: #03C988;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.skill-tags {
+  color: #fff;
+  font-size: 13px;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 500;
+  line-height: 1.4;
 }
 
 /************ Blog Css ************/
@@ -492,6 +488,248 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   color: #B8B8B8;
 }
 
+/************ Mobile Responsive Css ************/
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .skill, .blog, .contact {
+    padding: 60px 0;
+  }
+  .skill h2, .blog h2, .contact h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+  }
+  .skill p, .blog p {
+    font-size: 16px;
+    width: 90%;
+    margin-bottom: 40px;
+  }
+  .skill-card, .blog-card {
+    padding: 25px;
+    margin-bottom: 20px;
+  }
+  .skill-card h3, .blog-card h3 {
+    font-size: 22px;
+  }
+  .skill-card p, .blog-card p {
+    font-size: 16px;
+  }
+  .banner {
+    padding: 160px 0 60px 0;
+  }
+  .banner h1 {
+    font-size: 40px;
+  }
+  .banner p {
+    font-size: 18px;
+    width: 100%;
+  }
+  .banner img {
+    width: 60%;
+    margin: 40px 0 0 0;
+  }
+  .contact {
+    padding: 60px 15px;
+  }
+  .contact img {
+    width: 50%;
+    margin: 0 auto 30px auto;
+    display: block;
+  }
+  .contact h2 {
+    text-align: left;
+    font-size: 32px;
+  }
+  .navbar-brand h2 {
+    font-size: 20px;
+  }
+  footer .portfolio {
+    display: none;
+  }
+  .social-icon {
+    display: none;
+  }
+}
+
+/************ Blog Post View Css ************/
+.blog-post-view {
+  padding: 150px 0 100px 0;
+  background-color: #000000;
+  min-height: 100vh;
+}
+.back-link {
+  color: #03C988;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+.back-link:hover {
+  color: #fff;
+  transform: translateX(-5px);
+}
+.markdown-content {
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 1.8;
+}
+.markdown-content h1 {
+  font-size: 45px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #1a1a1a;
+  padding-bottom: 20px;
+}
+.markdown-content h2 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #03C988;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+.markdown-content p {
+  margin-bottom: 25px;
+  color: #B8B8B8;
+  text-align: left;
+  width: 100%;
+}
+.markdown-content code {
+  background: #1a1a1a;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #03C988;
+}
+.markdown-content pre {
+  background: #0a0a0a;
+  padding: 25px;
+  border: 1px solid #1a1a1a;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 30px 0;
+}
+.markdown-content pre code {
+  background: transparent;
+  padding: 0;
+  color: #fff;
+  font-size: 16px;
+}
+.markdown-content ul, .markdown-content ol {
+  margin-bottom: 30px;
+  color: #B8B8B8;
+}
+.markdown-content li {
+  margin-bottom: 10px;
+}
+.loading-text {
+  font-size: 24px;
+  color: #03C988;
+  text-align: center;
+  margin-top: 100px;
+}
+
+/************ Loading Screen Css ************/
+.loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.coffee-container {
+  width: 100px;
+  height: 80px;
+  position: relative;
+}
+
+.coffee-cup {
+  width: 80px;
+  height: 70px;
+  border: 4px solid #03C988;
+  border-radius: 0 0 40px 40px;
+  position: relative;
+  box-shadow: 0 0 15px rgba(3, 201, 136, 0.4);
+}
+
+.coffee-cup::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: -25px;
+  width: 30px;
+  height: 35px;
+  border: 4px solid #03C988;
+  border-radius: 0 50% 50% 0;
+  box-shadow: 5px 0 10px rgba(3, 201, 136, 0.2);
+}
+
+.steam-container {
+  display: flex;
+  position: absolute;
+  top: -40px;
+  left: 15px;
+  gap: 15px;
+}
+
+.steam-line {
+  width: 4px;
+  height: 25px;
+  background: #03C988;
+  border-radius: 4px;
+  opacity: 0;
+  box-shadow: 0 0 10px #03C988;
+  animation: steam 2s infinite;
+}
+
+.steam-line:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.steam-line:nth-child(3) {
+  animation-delay: 1s;
+}
+
+@keyframes steam {
+  0% {
+    transform: translateY(0) scaleX(1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-30px) scaleX(1.5);
+    opacity: 0;
+  }
+}
+
+.brewing-text {
+  margin-top: 40px;
+  color: #03C988;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
 /************ Footer Css ************/
 .footer {
   padding: 0 0 50px 0;
@@ -577,4 +815,96 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   background: #03C988;
   color: #000000 !important;
   box-shadow: 0 0 15px rgba(3, 201, 136, 0.5);
+}
+
+/************ Blog Page (Archive) Css ************/
+.blog-page {
+  padding: 150px 0 100px 0;
+  background-color: #000000;
+  min-height: 100vh;
+}
+.blog-page h2 {
+  font-size: 50px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+.blog-subtitle {
+  color: #B8B8B8;
+  font-size: 18px;
+  margin-bottom: 40px !important;
+}
+.search-container {
+  display: flex;
+  align-items: center;
+  background: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  padding: 10px 20px;
+  border-radius: 4px;
+  max-width: 600px;
+  margin: 0 auto;
+  transition: 0.3s;
+}
+.search-container:focus-within {
+  border-color: #03C988;
+  box-shadow: 0 0 15px rgba(3, 201, 136, 0.1);
+}
+.search-prefix {
+  color: #03C988;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 700;
+  margin-right: 15px;
+}
+.search-input {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 18px;
+  width: 100%;
+}
+.no-results {
+  font-size: 20px;
+  color: #B8B8B8;
+}
+.highlight {
+  color: #03C988;
+}
+.vvd-button {
+  display: inline-block;
+}
+button.vvd {
+  background: transparent;
+  color: #03C988;
+  border: 1px solid #03C988;
+  padding: 12px 35px;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+button.vvd span {
+  position: relative;
+  z-index: 1;
+}
+button.vvd::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #03C988;
+  transition: 0.3s ease-in-out;
+  z-index: 0;
+}
+button.vvd:hover::before {
+  width: 100%;
+}
+button.vvd:hover {
+  color: #000;
 }

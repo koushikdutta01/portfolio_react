@@ -36,7 +36,7 @@ function ContactForm() {
                         <h2>Get In Touch</h2>
                         <form onSubmit={handleSubmit}>
                             <Row>
-                                <Col size={12} className="px-1 mb-3">
+                                <Col xs={12} className="px-1 mb-3">
                                     <label htmlFor="name">Your Name</label>
                                     <input
                                         id="name"
@@ -51,7 +51,7 @@ function ContactForm() {
                                         errors={state.errors}
                                     />
                                 </Col>
-                                <Col size={12} className="px-1 mb-3">
+                                <Col xs={12} className="px-1 mb-3">
                                     <label htmlFor="email">Email Address</label>
                                     <input
                                         id="email"

@@ -1,28 +1,12 @@
 import { Container, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
+import { blogs } from "../constants/blogs";
 
 export const Blog = () => {
-  const blogs = [
-    {
-      title: "Mastering Java Exception Handling",
-      date: "Feb 10, 2026",
-      summary: "A deep dive into Checked vs Unchecked exceptions and building custom exception handlers in Spring Boot.",
-      link: "https://github.com/koushikdutta01/java_learning"
-    },
-    {
-      title: "Networking Essentials for Developers",
-      date: "Feb 5, 2026",
-      summary: "Understanding TCP/IP, Subnetting, and IP security for robust microservices communication.",
-      link: "https://github.com/koushikdutta01/my_notes"
-    },
-    {
-      title: "Fedora Linux: A Developer's Paradise",
-      date: "Jan 28, 2026",
-      summary: "Why I switched to Fedora and how I automated my system configuration backups.",
-      link: "https://github.com/koushikdutta01/system-backup"
-    }
-  ];
+  // Only show the first 4 blogs on the main page
+  const displayBlogs = blogs.slice(0, 4);
 
   return (
     <section className="blog" id="blog">
@@ -36,20 +20,25 @@ export const Blog = () => {
                 <p>I believe in the 'Learn in Public' philosophy. Here are my notes, thoughts, and technical deep dives into the technologies I use every day.</p>
                 <Row>
                   {
-                    blogs.map((blog, index) => {
+                    displayBlogs.map((blog, index) => {
                       return (
                         <Col key={index} sm={6} md={6} className="mb-4">
                           <div className="blog-card">
                             <h3>{blog.title}</h3>
                             <span className="blog-date">{blog.date}</span>
                             <p className="mt-2">{blog.summary}</p>
-                            <a href={blog.link} target="_blank" rel="noreferrer" className="read-more">Read Full Note →</a>
+                            <Link to={`/blog/${blog.id}`} className="read-more">Read Full Note →</Link>
                           </div>
                         </Col>
                       )
                     })
                   }
                 </Row>
+                <div className="text-center mt-5">
+                  <Link to="/blogs" className="vvd-button" style={{ textDecoration: 'none' }}>
+                    <button className="vvd"><span>All Blogs</span></button>
+                  </Link>
+                </div>
               </div>}
             </TrackVisibility>
           </Col>

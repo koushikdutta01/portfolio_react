@@ -5,51 +5,50 @@ import TrackVisibility from 'react-on-screen';
 export const Skills = () => {
   const skills = [
     {
-      title: "Backend Development",
-      description: "Specializing in Java 21 and Spring Boot 3.x. Expertise in building high-performance REST APIs, Spring Data JPA, and robust Exception Handling mechanisms.",
+      title: "Backend",
+      tags: ["Java 21", "Spring Boot 3", "JPA"]
     },
     {
-      title: "Microservices & Cloud",
-      description: "Experienced in Microservices architecture, including Service Discovery, Centralized Configuration, and API Gateways. Focused on building resilient and scalable systems.",
+      title: "Architecture",
+      tags: ["Microservices", "System Design"]
     },
     {
-      title: "Infrastructure & Tools",
-      description: "Proficient in Docker for containerization and PostgreSQL for relational data management. Automation enthusiast using GitHub Actions and Linux scripting.",
+      title: "Infrastructure",
+      tags: ["Docker", "PostgreSQL", "Linux"]
     },
     {
-      title: "Clean Code & Testing",
-      description: "Adherent to SOLID principles and TDD. Focused on writing maintainable, well-documented, and thoroughly tested code for enterprise environments.",
+      title: "Quality",
+      tags: ["Clean Code", "TDD", "SOLID"]
     }
   ];
 
   return (
     <section className="skill" id="skills">
       <Container>
-        <Row>
-          <Col size={12}>
-            <TrackVisibility>
-              {({ isVisible }) =>
-              <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
-                <h2>Expertise</h2>
-                <p>My technical foundation is built on modern Java ecosystems and distributed systems architecture, focused on efficiency and scalability.</p>
-                <Row>
-                  {
-                    skills.map((skill, index) => {
-                      return (
-                        <Col key={index} sm={6} md={6} className="mb-4">
-                          <div className="skill-card p-4">
-                            <h3>{skill.title}</h3>
-                            <p className="mt-2">{skill.description}</p>
+        <TrackVisibility>
+          {({ isVisible }) =>
+          <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
+            <div className="compact-expertise">
+              <span className="expertise-label">[stack]:</span>
+              <Row className="skills-grid align-items-center">
+                {
+                  skills.map((skill, index) => {
+                    return (
+                      <Col key={index} xs={6} md={3} className="mb-3 mb-md-0">
+                        <div className="skill-block">
+                          <h5>{skill.title}</h5>
+                          <div className="skill-tags">
+                            {skill.tags.join(" | ")}
                           </div>
-                        </Col>
-                      )
-                    })
-                  }
-                </Row>
-              </div>}
-            </TrackVisibility>
-          </Col>
-        </Row>
+                        </div>
+                      </Col>
+                    )
+                  })
+                }
+              </Row>
+            </div>
+          </div>}
+        </TrackVisibility>
       </Container>
     </section>
   )

@@ -1,5 +1,5 @@
 {
-  "homepage": "http://koushikdutta01.github.io/portfolio_react",
+  "homepage": "https://koushik.cloud",
   "name": "personal-portfolio",
   "version": "0.1.0",
   "private": true,
@@ -23,16 +23,20 @@
     "react-bootstrap-icons": "^1.8.2",
     "react-dom": "^18.1.0",
     "react-mailchimp-subscribe": "^2.1.3",
+    "react-markdown": "^10.1.0",
     "react-multi-carousel": "^2.8.1",
     "react-on-screen": "^2.1.1",
     "react-responsive-carousel": "^3.2.23",
-    "react-router-dom": "^6.3.0",
+    "react-router-dom": "^6.30.3",
     "react-router-hash-link": "^2.4.3",
     "react-scripts": "5.0.1",
+    "remark-gfm": "^4.0.1",
     "serve": "^14.2.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "generate-sitemap": "node generate-sitemap.js",
+    "prebuild": "npm run generate-sitemap",
     "start": "react-scripts start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",

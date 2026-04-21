@@ -74,12 +74,29 @@ const Navbar = ({ onStartProject }) => {
                         }}
                     >
                         <div className="aura-glow" style={{ top: '10%', right: '10%', width: '400px', height: '400px', opacity: 0.08 }} />
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
-                            <div className="mono" style={{ color: 'var(--accent)', opacity: 1, marginBottom: '1.5rem', fontSize: '0.7rem' }}>NAVIGATION</div>
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
+                            <div className="mono" style={{ color: 'var(--accent)', opacity: 1, marginBottom: '1rem', fontSize: '0.6rem', letterSpacing: '0.5em' }}>INDEX // 01</div>
                             {navLinks.map((link, i) => (
                                 <motion.div key={link.path} initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.2 + i * 0.1 }}>
-                                    <Link to={link.path} onClick={() => setIsMenuOpen(false)} style={{ textDecoration: 'none', color: 'inherit', fontSize: 'clamp(3.5rem, 15vw, 6rem)', fontFamily: 'Cormorant Garamond, serif', lineHeight: 0.8, letterSpacing: '-0.02em' }}>
-                                        {link.name}
+                                    <Link 
+                                        to={link.path} 
+                                        onClick={() => setIsMenuOpen(false)} 
+                                        style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'baseline', gap: '1.5rem' }}
+                                    >
+                                        <span className="mono" style={{ fontSize: '0.6rem', color: 'var(--accent)', opacity: 0.5 }}>0{i+1}</span>
+                                        <motion.span 
+                                            whileHover={{ x: 20, color: 'var(--accent)' }}
+                                            whileTap={{ scale: 0.95 }}
+                                            style={{ 
+                                                fontSize: 'clamp(2.5rem, 12vw, 4.5rem)', 
+                                                fontFamily: 'Cormorant Garamond, serif', 
+                                                lineHeight: 1, 
+                                                letterSpacing: '-0.02em',
+                                                transition: 'color 0.4s ease'
+                                            }}
+                                        >
+                                            {link.name}
+                                        </motion.span>
                                     </Link>
                                 </motion.div>
                             ))}
@@ -87,9 +104,9 @@ const Navbar = ({ onStartProject }) => {
                                 <button 
                                     onClick={() => { setIsMenuOpen(false); onStartProject(); }} 
                                     className="magnetic-btn" 
-                                    style={{ marginTop: '3rem', width: '100%', fontSize: '0.6rem' }}
+                                    style={{ marginTop: '2.5rem', width: '100%', fontSize: '0.6rem', border: '1px solid var(--accent)', color: 'var(--accent)' }}
                                 >
-                                    INITIATE PROJECT
+                                    INITIATE CONCEPT
                                 </button>
                             </motion.div>
                         </div>

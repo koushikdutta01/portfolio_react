@@ -119,6 +119,8 @@ const Navbar = ({ onStartProject }) => {
 
 const Layout = ({ children }) => {
     const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1024);
+    const { pathname } = useLocation();
+    const lenisRef = useRef(null);
     
     useEffect(() => {
         const lenis = new Lenis({
@@ -126,6 +128,7 @@ const Layout = ({ children }) => {
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             smoothWheel: true,
         });
+        lenisRef.current = lenis;
 
         function raf(time) {
             lenis.raf(time);
@@ -140,6 +143,14 @@ const Layout = ({ children }) => {
             window.removeEventListener('resize', check);
         };
     }, []);
+
+    useEffect(() => {
+        if (lenisRef.current) {
+            lenisRef.current.scrollTo(0, { immediate: true });
+        } else {
+            window.scrollTo(0, 0);
+        }
+    }, [pathname]);
 
     return (
         <>

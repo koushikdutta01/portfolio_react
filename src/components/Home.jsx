@@ -26,7 +26,7 @@ const Hero = ({ onStartProject }) => {
             height: 'clamp(400px, 60vh, 800px)',
             background: 'rgba(219, 181, 132, 0.02)',
             backdropFilter: 'blur(50px)',
-            -webkit-backdropFilter: 'blur(50px)',
+            WebkitBackdropFilter: 'blur(50px)',
             border: '1px solid rgba(219, 181, 132, 0.1)',
             zIndex: -1,
             borderRadius: '0px'

@@ -34,7 +34,7 @@ const Navbar = ({ onStartProject }) => {
                 backdropFilter: 'blur(15px)'
             }}>
                 <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }} onClick={() => setIsMenuOpen(false)}>
-                    <div style={{ fontWeight: 400, letterSpacing: isMobile ? '3px' : '5px', fontSize: isMobile ? '0.9rem' : '1.1rem', textTransform: 'uppercase', color: 'var(--accent)', fontFamily: 'Source Code Pro, monospace' }}>koushik.cloud</div>
+                    <div style={{ fontWeight: 400, letterSpacing: isMobile ? '3px' : '5px', fontSize: isMobile ? '0.9rem' : '1.1rem', textTransform: 'lowercase', color: 'var(--accent)', fontFamily: 'Source Code Pro, monospace' }}>koushik.cloud</div>
                 </Link>
 
                 {!isMobile ? (

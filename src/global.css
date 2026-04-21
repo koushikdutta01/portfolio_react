@@ -64,7 +64,7 @@ h1, h2, h3 {
   opacity: 0.8;
 }
 
-/* Glow Utilities */
+/* Glow Utilities with Breathing Animation */
 .aura-glow {
   position: absolute;
   border-radius: 50%;
@@ -73,6 +73,12 @@ h1, h2, h3 {
   pointer-events: none;
   background: var(--accent);
   z-index: -1;
+  animation: aura-breathe 8s ease-in-out infinite alternate;
+}
+
+@keyframes aura-breathe {
+  0% { transform: scale(1) translate(0, 0); opacity: 0.08; }
+  100% { transform: scale(1.2) translate(2%, 2%); opacity: 0.15; }
 }
 
 /* Premium Button Architecture */
@@ -94,6 +100,8 @@ h1, h2, h3 {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .magnetic-btn::after {

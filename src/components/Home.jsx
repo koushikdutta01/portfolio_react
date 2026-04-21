@@ -10,46 +10,59 @@ const projects = [
 
 const Hero = ({ onStartProject }) => {
   return (
-    <section style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0 8vw', paddingTop: '110px', position: 'relative', overflow: 'hidden' }}>
-      <div className="aura-glow" style={{ top: '10%', right: '5%', width: '600px', height: '600px', opacity: 0.12 }} />
+    <section style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0 8vw', paddingTop: '110px', position: 'relative' }}>
+      <div className="aura-glow" style={{ top: '10%', right: '10%', width: '500px', height: '500px', opacity: 0.1 }} />
       
-      {/* Glowing Glass Decorative Element */}
+      {/* Persistent Glowing Glass Decorative Element */}
       <motion.div 
-        initial={{ opacity: 0, scale: 0.9, rotate: -5 }}
-        animate={{ opacity: 1, scale: 1, rotate: 0 }}
-        transition={{ duration: 2, ease: [0.19, 1, 0.22, 1], delay: 0.5 }}
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 2.5, ease: [0.19, 1, 0.22, 1] }}
         style={{
             position: 'absolute',
-            top: '25%',
-            right: '-5%',
-            width: 'clamp(300px, 40vw, 600px)',
-            height: 'clamp(400px, 50vh, 700px)',
-            background: 'rgba(219, 181, 132, 0.03)',
-            backdropFilter: 'blur(40px)',
-            border: '1px solid rgba(219, 181, 132, 0.15)',
+            top: '20%',
+            right: '-10%',
+            width: 'clamp(300px, 45vw, 700px)',
+            height: 'clamp(400px, 60vh, 800px)',
+            background: 'rgba(219, 181, 132, 0.02)',
+            backdropFilter: 'blur(50px)',
+            -webkit-backdropFilter: 'blur(50px)',
+            border: '1px solid rgba(219, 181, 132, 0.1)',
             zIndex: -1,
-            borderRadius: '2px'
+            borderRadius: '0px'
         }}
       >
-        <div className="aura-glow" style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '100%', height: '100%', opacity: 0.1 }} />
+        <motion.div 
+            animate={{ 
+                x: [0, 30, 0],
+                y: [0, -30, 0]
+            }}
+            transition={{ 
+                duration: 10,
+                repeat: Infinity,
+                ease: "linear"
+            }}
+            className="aura-glow" 
+            style={{ top: '30%', left: '30%', width: '100%', height: '100%', opacity: 0.15 }} 
+        />
       </motion.div>
 
       <div className="mono" style={{ marginBottom: '2.5rem', color: 'var(--accent)', fontSize: '0.7rem', opacity: 0.9 }}>// CREATIVE ENGINEERING // EST. 2026</div>
       
       <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.8, ease: [0.19, 1, 0.22, 1] }}>
-        <h1 className="hero-large" style={{ color: 'var(--fg)' }}>CRAFTING</h1>
-        <h1 className="hero-large" style={{ paddingLeft: 'clamp(40px, 15vw, 25vw)', color: 'var(--accent)', fontStyle: 'italic', fontFamily: 'Cormorant Garamond, serif' }}>DIGITAL</h1>
-        <h1 className="hero-large">LEGACIES.</h1>
+        <h1 className="hero-large" style={{ color: 'var(--fg)', position: 'relative', zIndex: 1 }}>CRAFTING</h1>
+        <h1 className="hero-large" style={{ paddingLeft: 'clamp(40px, 15vw, 25vw)', color: 'var(--accent)', fontStyle: 'italic', fontFamily: 'Cormorant Garamond, serif', position: 'relative', zIndex: 1 }}>DIGITAL</h1>
+        <h1 className="hero-large" style={{ position: 'relative', zIndex: 1 }}>LEGACIES.</h1>
       </motion.div>
 
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1.5 }} style={{ marginTop: 'clamp(3rem, 8vh, 5rem)', display: 'flex', flexDirection: 'column', gap: '3.5rem', alignItems: 'flex-start' }}>
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1, duration: 1.5 }} style={{ marginTop: 'clamp(3rem, 8vh, 5rem)', display: 'flex', flexDirection: 'column', gap: '3.5rem', alignItems: 'flex-start', position: 'relative', zIndex: 1 }}>
         <p style={{ maxWidth: '520px', fontSize: 'clamp(1rem, 1.3vw, 1.2rem)', lineHeight: '1.9', opacity: 0.7, fontWeight: 300 }}>
           Where high-fidelity engineering meets architectural precision. We build digital infrastructure for brands that demand absolute excellence.
         </p>
         <button onClick={onStartProject} className="magnetic-btn" style={{ fontSize: '0.65rem' }}>INITIATE PARTNERSHIP</button>
       </motion.div>
 
-      <div style={{ position: 'absolute', bottom: '8vh', left: '8vw' }}>
+      <div style={{ position: 'absolute', bottom: '8vh', left: '8vw', zIndex: 1 }}>
           <div className="mono" style={{ opacity: 0.4, display: 'flex', gap: '2.5rem', fontSize: '0.65rem' }}>
               <span>22.5726° N</span>
               <span>88.3639° E</span>

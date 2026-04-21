@@ -10,9 +10,30 @@ const projects = [
 
 const Hero = ({ onStartProject }) => {
   return (
-    <section style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0 8vw', paddingTop: '110px', position: 'relative' }}>
-      <div className="aura-glow" style={{ top: '10%', right: '5%', width: '600px', height: '600px', opacity: 0.1 }} />
+    <section style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0 8vw', paddingTop: '110px', position: 'relative', overflow: 'hidden' }}>
+      <div className="aura-glow" style={{ top: '10%', right: '5%', width: '600px', height: '600px', opacity: 0.12 }} />
       
+      {/* Glowing Glass Decorative Element */}
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.9, rotate: -5 }}
+        animate={{ opacity: 1, scale: 1, rotate: 0 }}
+        transition={{ duration: 2, ease: [0.19, 1, 0.22, 1], delay: 0.5 }}
+        style={{
+            position: 'absolute',
+            top: '25%',
+            right: '-5%',
+            width: 'clamp(300px, 40vw, 600px)',
+            height: 'clamp(400px, 50vh, 700px)',
+            background: 'rgba(219, 181, 132, 0.03)',
+            backdropFilter: 'blur(40px)',
+            border: '1px solid rgba(219, 181, 132, 0.15)',
+            zIndex: -1,
+            borderRadius: '2px'
+        }}
+      >
+        <div className="aura-glow" style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '100%', height: '100%', opacity: 0.1 }} />
+      </motion.div>
+
       <div className="mono" style={{ marginBottom: '2.5rem', color: 'var(--accent)', fontSize: '0.7rem', opacity: 0.9 }}>// CREATIVE ENGINEERING // EST. 2026</div>
       
       <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.8, ease: [0.19, 1, 0.22, 1] }}>

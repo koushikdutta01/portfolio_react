@@ -31,16 +31,17 @@ const ProjectPortal = ({ isOpen, onClose }) => {
                     className="flex-center"
                     style={{
                         position: 'fixed', top: 0, left: 0, width: '100%', height: '100%',
-                        backgroundColor: 'rgba(3, 3, 3, 0.98)', backdropFilter: 'blur(20px)', zIndex: 10000,
+                        backgroundColor: '#000000', backdropFilter: 'blur(30px)', zIndex: 10000,
                         padding: '2rem'
                     }}
                 >
+                    <div className="aura-glow" style={{ top: '20%', left: '20%', width: '600px', height: '600px', opacity: 0.1 }} />
                     <div style={{ textAlign: 'center' }}>
-                         <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>THANK YOU FOR CONNECTING.</h2>
-                         <p style={{ opacity: 0.5, marginTop: '1.5rem', maxWidth: '500px', margin: '1.5rem auto', fontSize: '1rem' }}>
-                            Your inquiry has been received. Our team will reach out to you as soon as possible to discuss your vision.
+                         <h2 style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', letterSpacing: '-0.05em', color: 'var(--fg)' }}>INITIATION COMPLETE.</h2>
+                         <p className="mono" style={{ color: 'var(--accent)', marginTop: '2.5rem', maxWidth: '600px', margin: '2.5rem auto', fontSize: '0.8rem', opacity: 1 }}>
+                            Your digital signature has been recorded. We will contact you shortly to begin the conceptual synthesis.
                          </p>
-                         <button onClick={() => { onClose(); setStep(1); }} className="magnetic-btn" style={{ marginTop: '2rem' }}>RETURN HOME</button>
+                         <button onClick={() => { onClose(); setStep(1); }} className="magnetic-btn" style={{ marginTop: '4rem' }}>RETURN TO VOID</button>
                     </div>
                 </motion.div>
             )}
@@ -57,38 +58,45 @@ const ProjectPortal = ({ isOpen, onClose }) => {
           exit={{ opacity: 0 }}
           style={{
             position: 'fixed', top: 0, left: 0, width: '100%', height: '100%',
-            backgroundColor: 'rgba(3, 3, 3, 0.98)', backdropFilter: 'blur(20px)',
+            backgroundColor: 'rgba(0, 0, 0, 0.98)', backdropFilter: 'blur(40px)',
             zIndex: 10000, display: 'flex', flexDirection: 'column',
             alignItems: 'center', justifyContent: 'center', padding: '2rem'
           }}
         >
-          <motion.div onClick={onClose} style={{ position: 'absolute', top: '2rem', right: '5vw', cursor: 'pointer' }} className="mono">
-            [ CLOSE ]
+          <div className="aura-glow" style={{ top: '10%', right: '10%', width: '500px', height: '500px', opacity: 0.05 }} />
+          
+          <motion.div 
+            onClick={onClose} 
+            whileHover={{ color: 'var(--accent)', letterSpacing: '0.5em' }}
+            style={{ position: 'absolute', top: '4rem', right: '8vw', cursor: 'pointer', transition: 'all 0.5s ease' }} 
+            className="mono"
+          >
+            [ CLOSE / ESC ]
           </motion.div>
 
-          <div style={{ maxWidth: '600px', width: '100%' }}>
+          <div style={{ maxWidth: '900px', width: '100%' }}>
             <form onSubmit={handleSubmit}>
               <AnimatePresence mode="wait">
                 {step === 1 && (
-                  <motion.div key="step1" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
-                    <div className="mono" style={{ color: 'var(--accent)', marginBottom: '1rem' }}>01 / IDENTIFICATION</div>
-                    <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', marginBottom: '2rem' }}>WHO ARE YOU?</h2>
+                  <motion.div key="step1" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -30 }} transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}>
+                    <div className="mono" style={{ color: 'var(--accent)', marginBottom: '2rem' }}>01 // IDENTIFICATION</div>
+                    <h2 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', marginBottom: '4rem', lineHeight: 0.9, color: 'var(--fg)' }}>WHO IS THE<br/><span style={{ color: 'var(--accent)', fontStyle: 'italic', fontFamily: 'Cormorant Garamond, serif' }}>PARTNER?</span></h2>
                     <input 
                       autoFocus 
                       name="name" 
-                      placeholder="Name or Brand" 
+                      placeholder="Individual or Brand Name" 
                       required 
                       onKeyDown={(e) => handleKeyDown(e, 1)}
                       style={inputStyle} 
                     />
-                    <button type="button" onClick={nextStep} className="magnetic-btn" style={{ marginTop: '2rem' }}>NEXT</button>
+                    <button type="button" onClick={nextStep} className="magnetic-btn" style={{ marginTop: '5rem' }}>CONTINUE</button>
                   </motion.div>
                 )}
 
                 {step === 2 && (
-                  <motion.div key="step2" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
-                    <div className="mono" style={{ color: 'var(--accent)', marginBottom: '1rem' }}>02 / CONNECTION</div>
-                    <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', marginBottom: '2rem' }}>WHERE TO REACH?</h2>
+                  <motion.div key="step2" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -30 }} transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}>
+                    <div className="mono" style={{ color: 'var(--accent)', marginBottom: '2rem' }}>02 // CONNECTION</div>
+                    <h2 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', marginBottom: '4rem', lineHeight: 0.9, color: 'var(--fg)' }}>WHERE DO WE<br/><span style={{ color: 'var(--accent)', fontStyle: 'italic', fontFamily: 'Cormorant Garamond, serif' }}>RESPOND?</span></h2>
                     <input 
                       autoFocus 
                       id="email"
@@ -100,39 +108,39 @@ const ProjectPortal = ({ isOpen, onClose }) => {
                       style={inputStyle} 
                     />
                     <ValidationError prefix="Email" field="email" errors={state.errors} />
-                    <button type="button" onClick={nextStep} className="magnetic-btn" style={{ marginTop: '2rem' }}>NEXT</button>
+                    <button type="button" onClick={nextStep} className="magnetic-btn" style={{ marginTop: '5rem' }}>CONTINUE</button>
                   </motion.div>
                 )}
 
                 {step === 3 && (
-                  <motion.div key="step3" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
-                    <div className="mono" style={{ color: 'var(--accent)', marginBottom: '1rem' }}>03 / DIRECT LINE</div>
-                    <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', marginBottom: '2rem' }}>PHONE NUMBER?</h2>
+                  <motion.div key="step3" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -30 }} transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}>
+                    <div className="mono" style={{ color: 'var(--accent)', marginBottom: '2rem' }}>03 // DIRECT LINE</div>
+                    <h2 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', marginBottom: '4rem', lineHeight: 0.9, color: 'var(--fg)' }}>A SECURE<br/><span style={{ color: 'var(--accent)', fontStyle: 'italic', fontFamily: 'Cormorant Garamond, serif' }}>NUMBER?</span></h2>
                     <input 
                       autoFocus 
                       type="tel" 
                       name="phone" 
-                      placeholder="+1 (555) 000-0000" 
+                      placeholder="+00 (000) 000-0000" 
                       onKeyDown={(e) => handleKeyDown(e, 3)}
                       style={inputStyle} 
                     />
-                    <button type="button" onClick={nextStep} className="magnetic-btn" style={{ marginTop: '2rem' }}>NEXT</button>
+                    <button type="button" onClick={nextStep} className="magnetic-btn" style={{ marginTop: '5rem' }}>CONTINUE</button>
                   </motion.div>
                 )}
 
                 {step === 4 && (
-                  <motion.div key="step4" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
-                    <div className="mono" style={{ color: 'var(--accent)', marginBottom: '1rem' }}>04 / AMBITION</div>
-                    <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', marginBottom: '2rem' }}>WHAT'S THE GOAL?</h2>
+                  <motion.div key="step4" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -30 }} transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}>
+                    <div className="mono" style={{ color: 'var(--accent)', marginBottom: '2rem' }}>04 // AMBITION</div>
+                    <h2 style={{ fontSize: 'clamp(3rem, 8vw, 6rem)', marginBottom: '4rem', lineHeight: 0.9, color: 'var(--fg)' }}>WHAT IS THE<br/><span style={{ color: 'var(--accent)', fontStyle: 'italic', fontFamily: 'Cormorant Garamond, serif' }}>OBJECTIVE?</span></h2>
                     <textarea 
                       autoFocus 
                       name="message" 
-                      placeholder="Briefly describe your vision..." 
+                      placeholder="Briefly describe the vision..." 
                       required 
-                      style={{...inputStyle, textAlign: 'left', minHeight: '150px', fontSize: '1.2rem'}} 
+                      style={{...inputStyle, textAlign: 'left', minHeight: '100px', fontSize: '1.4rem'}} 
                     />
-                    <button type="submit" disabled={state.submitting} className="magnetic-btn" style={{ marginTop: '2rem' }}>
-                        {state.submitting ? "INITIATING..." : "INITIATE SYNTHESIS"}
+                    <button type="submit" disabled={state.submitting} className="magnetic-btn" style={{ marginTop: '5rem' }}>
+                        {state.submitting ? "UPLOADING..." : "INITIATE SYNTHESIS"}
                     </button>
                   </motion.div>
                 )}
@@ -150,12 +158,14 @@ const inputStyle = {
   background: 'transparent',
   border: 'none',
   borderBottom: '1px solid var(--border)',
-  padding: '1rem 0',
-  fontSize: 'clamp(1.5rem, 4vw, 2rem)',
+  padding: '2rem 0',
+  fontSize: 'clamp(1.5rem, 4vw, 3rem)',
   color: 'var(--fg)',
   fontFamily: 'inherit',
   outline: 'none',
-  transition: 'border-color 0.3s ease'
+  transition: 'border-color 0.6s cubic-bezier(0.19, 1, 0.22, 1)',
+  borderRadius: 0,
+  fontWeight: 200
 };
 
 export default ProjectPortal;

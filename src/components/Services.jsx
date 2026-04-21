@@ -1,32 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const Services = () => {
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     const offerings = [
         { 
             title: "Bespoke Web Design", 
             details: ["Visual Identity", "Immersive Motion", "Digital Couture"],
-            desc: "Custom-crafted interfaces that transcend standard layouts. We build high-fidelity digital flagships tailored to your unique brand sentiment."
+            desc: "Custom-crafted interfaces that transcend standard layouts. We build high-fidelity digital flagships tailored to your unique brand DNA."
         },
         { 
             title: "Full-Stack Development", 
-            details: ["React / Node Ecosystems", "Scalable Backends", "API Architecture"],
-            desc: "Robust, end-to-end applications built for global scale. From architecture to deployment, we ensure bulletproof performance."
+            details: ["React / Node Ecosystems", "Scalable Architecture", "API Engineering"],
+            desc: "Robust, end-to-end applications built for global scale. From architecture to deployment, we ensure absolute technical precision."
         },
         { 
-            title: "Autonomous AI Agents", 
-            details: ["LLM Integration", "Workflow Automation", "Smart Pipelines"],
-            desc: "Injecting intelligence into your business. We build custom AI automations that scrape data and streamline operations with zero friction."
+            title: "Autonomous AI Systems", 
+            details: ["LLM Integration", "Workflow Synthesis", "Smart Pipelines"],
+            desc: "Injecting intelligence into your business. We build custom AI automations that streamline complex operations with zero friction."
         },
         { 
             title: "Native Mobile Engineering", 
-            details: ["iOS & Android", "Expo / React Native", "Fluid UX"],
-            desc: "High-performance mobile apps created to feel native and alive. We handle everything from the first pixel to the App Store."
+            details: ["iOS & Android", "Expo / React Native", "Fluid Interaction"],
+            desc: "High-performance mobile apps created to feel alive. We handle every detail, from the first pixel to the final storefront deployment."
         },
         { 
             title: "Evolutionary Maintenance", 
             details: ["Zero-Hassle Upkeep", "Design Refactoring", "Live Optimization"],
-            desc: "Continuous growth. We don't just 'maintain' your site; we refactor it as design trends evolve, ensuring you are always at the peak of excellence."
+            desc: "Continuous growth. We don't just maintain; we refactor your presence as trends evolve, ensuring you are always at the apex of excellence."
         }
     ];
 
@@ -35,15 +43,19 @@ const Services = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            style={{ padding: 'clamp(100px, 15vh, 20vh) 5vw 10vh' }}
+            style={{ padding: 'clamp(160px, 28vh, 280px) 8vw 15vh', background: '#000000', position: 'relative' }}
         >
-            <div style={{ marginBottom: '10vh', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            <div className="aura-glow" style={{ top: '5%', left: '0%', width: '800px', height: '800px', opacity: 0.05 }} />
+
+            <div style={{ marginBottom: 'clamp(6rem, 20vh, 18vh)', display: 'flex', flexDirection: 'column', gap: '3rem' }}>
                 <div>
-                    <span className="mono" style={{ color: 'var(--accent)' }}>02 / SOLUTIONS</span>
-                    <h2 style={{ fontSize: 'clamp(3rem, 8vw, 8vw)', lineHeight: 0.9, marginTop: '2rem' }}>THE<br/>SERVICES.</h2>
+                    <span className="mono" style={{ color: 'var(--accent)', fontSize: '0.7rem', opacity: 0.9 }}>02 // THE SOLUTIONS</span>
+                    <h2 style={{ fontSize: 'clamp(4rem, 12vw, 9vw)', lineHeight: 0.8, marginTop: '3rem', letterSpacing: '-0.04em', color: 'var(--fg)' }}>THE<br/><span style={{ color: 'var(--accent)', fontStyle: 'italic', fontFamily: 'Cormorant Garamond, serif' }}>SERVICES.</span></h2>
                 </div>
-                <div style={{ maxWidth: '400px' }}>
-                    <p className="mono" style={{ opacity: 0.5, lineHeight: 1.6 }}>Creating end-to-end digital legacies with zero technical friction for our partners.</p>
+                <div style={{ maxWidth: '450px' }}>
+                    <p style={{ opacity: 0.6, lineHeight: 1.9, fontSize: 'clamp(1.05rem, 1.3vw, 1.2rem)', fontWeight: 300 }}>
+                        High-fidelity digital infrastructure delivered with absolute technical precision. Engineering legacies for global industry.
+                    </p>
                 </div>
             </div>
 
@@ -51,28 +63,40 @@ const Services = () => {
                 {offerings.map((o, i) => (
                     <motion.div 
                         key={i}
-                        whileHover={{ backgroundColor: 'rgba(255,255,255,0.02)' }}
+                        whileHover={{ backgroundColor: 'rgba(219, 181, 132, 0.02)' }}
+                        viewport={{ once: true }}
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, delay: i * 0.15, ease: [0.19, 1, 0.22, 1] }}
                         style={{ 
-                            padding: 'clamp(2rem, 5vh, 4rem) 0', 
+                            padding: isMobile ? '4rem 0' : 'clamp(5rem, 12vh, 8rem) 0', 
                             borderBottom: '1px solid var(--border)',
                             display: 'flex',
-                            flexDirection: window.innerWidth < 768 ? 'column' : 'row',
+                            flexDirection: isMobile ? 'column' : 'row',
                             justifyContent: 'space-between',
                             alignItems: 'flex-start',
-                            gap: '2rem'
+                            gap: isMobile ? '2.5rem' : '8vw',
+                            transition: 'background-color 0.8s ease'
                         }}
                     >
-                        <div style={{ flex: 1 }}>
-                            <div className="mono" style={{ color: 'var(--accent)', marginBottom: '1rem' }}>0{i+1} — OFFERING</div>
-                            <h3 style={{ fontSize: 'clamp(2rem, 4vw, 4rem)', fontWeight: 400 }}>{o.title}</h3>
+                        <div style={{ flex: 1.4 }}>
+                            <div className="mono" style={{ color: 'var(--accent)', marginBottom: '1.5rem', fontSize: isMobile ? '0.55rem' : '0.65rem', opacity: 1 }}>0{i+1} — OFFERING</div>
+                            <h3 style={{ fontSize: isMobile ? '2.5rem' : 'clamp(2.8rem, 5vw, 4.5rem)', fontWeight: 300, lineHeight: 1, letterSpacing: '-0.03em', color: 'var(--fg)' }}>{o.title}</h3>
                         </div>
                         <div style={{ flex: 1 }}>
-                             <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
+                             <div style={{ display: 'flex', gap: '0.8rem', flexWrap: 'wrap', marginBottom: isMobile ? '1.5rem' : '2.5rem' }}>
                                 {o.details.map((d, index) => (
-                                    <span key={index} className="mono" style={{ border: '1px solid var(--border)', padding: '4px 10px', opacity: 0.7, fontSize: '0.6rem' }}>{d}</span>
+                                    <span key={index} className="mono" style={{ 
+                                        border: '1px solid var(--border)', 
+                                        padding: '8px 16px', 
+                                        opacity: 1, 
+                                        color: 'var(--accent)',
+                                        fontSize: '0.65rem',
+                                        background: 'rgba(219, 181, 132, 0.02)'
+                                    }}>{d}</span>
                                 ))}
                              </div>
-                             <p style={{ opacity: 0.5, fontSize: 'clamp(1rem, 1.2vw, 1.2rem)', lineHeight: 1.6 }}>{o.desc}</p>
+                             <p style={{ opacity: 0.5, fontSize: isMobile ? '0.95rem' : 'clamp(1.05rem, 1.3vw, 1.15rem)', lineHeight: 1.8, fontWeight: 300 }}>{o.desc}</p>
                         </div>
                     </motion.div>
                 ))}

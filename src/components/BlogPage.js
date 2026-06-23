@@ -38,7 +38,16 @@ export const BlogPage = () => {
           </Col>
         </Row>
         <Row>
-          {filteredBlogs.length > 0 ? (
+          {blogs.length === 0 ? (
+            <Col className="text-center mt-5">
+              <div className="blog-card empty-state inline-block p-4 mx-auto" style={{ borderStyle: 'dashed', borderColor: '#03C988', maxWidth: '500px' }}>
+                <p style={{ color: "#03C988", fontFamily: '"Source Code Pro", monospace', margin: 0, fontSize: "1.1rem" }}>
+                  $ ls content/blogs/<br/>
+                  total 0
+                </p>
+              </div>
+            </Col>
+          ) : filteredBlogs.length > 0 ? (
             filteredBlogs.map((blog, index) => (
               <Col key={index} sm={6} md={6} lg={4} className="mb-4">
                 <div className="blog-card h-100">

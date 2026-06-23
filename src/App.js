@@ -1,9 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavBar } from "./components/NavBar";
 import { Banner } from "./components/Banner";
-import { Projects } from "./components/Projects";
 import { Blog } from "./components/Blog";
 import { BlogPage } from "./components/BlogPage";
 import { BlogPost } from "./components/BlogPost";

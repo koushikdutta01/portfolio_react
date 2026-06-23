@@ -25,14 +25,14 @@ function ContactForm() {
         <section className="contact" id='connect'>
             <Container>
                 <Row className="align-items-center">
-                    <Col size={12} md={6}>
+                    <Col xs={12} md={6}>
                         <TrackVisibility>
                             {({ isVisible }) =>
                                 <img className={isVisible ? "animate__animated animate__zoomIn" : ""} src={contactImg} alt="Contact Us" />
                             }
                         </TrackVisibility>
                     </Col>
-                    <Col size={12} md={6}>
+                    <Col xs={12} md={6}>
                         <h2>Get In Touch</h2>
                         <form onSubmit={handleSubmit}>
                             <Row>
@@ -66,7 +66,7 @@ function ContactForm() {
                                         errors={state.errors}
                                     />
                                 </Col>
-                                <Col size={12} className="px-1 mb-3">
+                                <Col xs={12} className="px-1 mb-3">
                                     <label htmlFor="message">Message</label>
                                     <textarea
                                         id="message"
@@ -81,7 +81,7 @@ function ContactForm() {
                                         errors={state.errors}
                                     />
                                 </Col>
-                                <Col size={12} className="px-1">
+                                <Col xs={12} className="px-1">
                                     <button type="submit" disabled={state.submitting}>
                                         {state.submitting ? "Sending..." : "Send Message"}
                                     </button>

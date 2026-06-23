@@ -12,7 +12,7 @@ export const Blog = () => {
     <section className="blog" id="blog">
       <Container>
         <Row>
-          <Col size={12}>
+          <Col xs={12}>
             <TrackVisibility>
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
@@ -20,18 +20,29 @@ export const Blog = () => {
                 <p>I believe in the 'Learn in Public' philosophy. Here are my notes, thoughts, and technical deep dives into the technologies I use every day.</p>
                 <Row>
                   {
-                    displayBlogs.map((blog, index) => {
-                      return (
-                        <Col key={index} sm={6} md={6} className="mb-4">
-                          <div className="blog-card">
-                            <h3>{blog.title}</h3>
-                            <span className="blog-date">{blog.date}</span>
-                            <p className="mt-2">{blog.summary}</p>
-                            <Link to={`/blog/${blog.id}`} className="read-more">Read Full Note →</Link>
-                          </div>
-                        </Col>
-                      )
-                    })
+                    displayBlogs.length > 0 ? (
+                      displayBlogs.map((blog, index) => {
+                        return (
+                          <Col key={index} sm={6} md={6} className="mb-4">
+                            <div className="blog-card">
+                              <h3>{blog.title}</h3>
+                              <span className="blog-date">{blog.date}</span>
+                              <p className="mt-2">{blog.summary}</p>
+                              <Link to={`/blog/${blog.id}`} className="read-more">Read Full Note →</Link>
+                            </div>
+                          </Col>
+                        )
+                      })
+                    ) : (
+                      <Col className="text-center mb-4">
+                        <div className="blog-card empty-state" style={{ borderStyle: 'dashed', borderColor: '#03C988' }}>
+                          <p style={{ color: "#03C988", fontFamily: '"Source Code Pro", monospace', margin: 0, fontSize: "1.1rem" }}>
+                            $ cat blogs.txt<br/>
+                            No notes found. Keep checking!
+                          </p>
+                        </div>
+                      </Col>
+                    )
                   }
                 </Row>
                 <div className="text-center mt-5">

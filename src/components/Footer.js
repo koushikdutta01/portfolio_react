@@ -3,8 +3,6 @@ import { Container, Row, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGithub,
-  faTwitter,
-  faInstagram,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 
@@ -16,10 +14,10 @@ export const Footer = () => {
       <Container>
         <Row className="align-items-center">
           {/* <MailchimpForm /> */}
-          <Col size={12} sm={6}>
+          <Col xs={12} sm={6}>
             <h2 className="portfolio">~/koushik</h2>
           </Col>
-          <Col size={12} sm={6} className="text-center text-sm-end">
+          <Col xs={12} sm={6} className="text-center text-sm-end">
             
             <p>koushikd2004@gmail.com</p>
             <span className="navbar-text">
